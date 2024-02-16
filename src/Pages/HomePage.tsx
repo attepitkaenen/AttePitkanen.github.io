@@ -26,18 +26,12 @@ export const HomePage = () => {
           <p className="quicksand-test text-2xl">Welcome! I'm Atte Pitkänen, a 21 year old full-stack .Net developer who is eager to dive into any tech related challenges, such as art, 3D modeling, full-stack and game development! </p>
         </div>
       </div>
-      <div>
-        <h2 className="protest-riot-regular text-9xl w-full text-center my-10">Projects</h2>
-        <div className="flex flex-col items-center p-6">
-          <div className="flex gap-2">
-            <div className="basis-1/2">
-              {/* <h2>Web Development</h2> */}
+      <div className="mx-12">
+        <h2 className="protest-riot-regular text-9xl w-full text-start my-10 border-b">Projects</h2>
+        <div className="p-12">
+          <div className="flex gap-6 items-stretch">
               {webCards}
-            </div>
-            <div className="basis-1/2">
-              {/* <h2>Game Development</h2> */}
               {gameCards}
-            </div>
           </div>
         </div>
       </div>

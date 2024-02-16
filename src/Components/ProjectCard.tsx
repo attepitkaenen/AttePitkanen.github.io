@@ -12,11 +12,13 @@ export const ProjectCard = ({ project }: Props) => {
   return (
     <Link
       to={"/portfolio/" + project.title}
-      className="border text-white hover:text-gray-500 text-2xl w-auto h-auto flex flex-col"
+      className="border text-white hover:text-gray-500 text-2xl w-auto h-auto flex flex-col basis-1/2"
     >
-      <img src={project.thumbnail} alt=""/>
-      <div className="p-4 flex flex-col gap-2">
-        <h1 className="protest-riot-regular text-6xl">{project.title}</h1>
+      <div className="container aspect-video bg-slate-500 grow grow-1">
+        <img src={project.thumbnail} alt="" className=""/>
+      </div>
+      <div className="p-4 flex flex-col h-auto gap-2">
+        <h1 className="protest-riot-regular text-6xl mt-auto">{project.title}</h1>
         <p className="">{project.description}</p>
         <div className="flex gap-2">{tags}</div>
       </div>
