@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
 .grad {
   background-image: linear-gradient(to top right, rgb(96, 255, 242) , rgb(255, 0, 255));
 }

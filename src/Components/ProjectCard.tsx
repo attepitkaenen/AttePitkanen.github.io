@@ -11,7 +11,7 @@ export const ProjectCard = ({ project }: Props) => {
 
   return (
     <Link
-      to={"/" + project.title}
+      to={"/portfolio/" + project.title}
       className="border text-white hover:text-gray-500 text-2xl w-auto h-auto flex flex-col"
     >
       <img src={project.thumbnail} alt=""/>
