@@ -18,31 +18,31 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        path: "portfolio/",
         element: <HomePage />,
       },
       {
-        path: "/gamedev",
+        path: "portfolio/gamedev",
         element: <GameDevPage />,
       },
       {
-        path: "/webdev",
+        path: "portfolio/webdev",
         element: <WebDevPage />,
       },
       {
-        path: "/webdev",
+        path: "portfolio/webdev",
         element: <WebDevPage />,
       },
       {
-        path: "/contact",
+        path: "portfolio/contact",
         element: <ContactPage />,
       },
       {
-        path: "/Roadtrip",
+        path: "portfolio/Roadtrip",
         element: <RoadTripBlog />,
       },
       {
-        path: "/Dealfortress",
+        path: "portfolio/Dealfortress",
         element: <DealFortressBlog />,
       },
     ],
