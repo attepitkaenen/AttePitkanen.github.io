@@ -6,23 +6,24 @@ const floatCode = `public Vector3 FloatPlayer()
 {
   if (floatCast.IsColliding())
   {
-    Vector3 position = player.Position;
-    int closestIndex = GetIndexOfClosestCollider();
-    Vector3 collisionPoint = floatCast.GetCollisionPoint(closestIndex);
-    float distance = new Vector3(collisionPoint.X, position.Y, collisionPoint.Z).DistanceTo(collisionPoint);
+    // using the height of the player and the closest collision point we can calculate the floatHeigh which should be 0 when floating in equilibrium
+    Vector3 closestCollisionPoint = floatCast.GetCollisionPoint(GetIndexOfClosestCollider());
+    float distance = Math.Abs(player.Position.Y - closestCollisionPoint.Y);
+    CapsuleShape3D playerCollider = player.collisionShape3D.Shape as CapsuleShape3D;
+    floatHeight = -distance + floatOffset + (playerCollider.Height / 2);
 
-    CapsuleShape3D capsule = player.collisionShape3D.Shape as CapsuleShape3D;
-    floatHeight = -distance + floatOffset + (capsule.Height / 2);
-
+    // calculate and return forces needed to achieve equilibrium
     if (floatHeight > 0 && player.movementState != Player.MovementState.jumping)
     {
       player.isGrounded = true;
       return (Vector3.Up * floatForce * player.gravity * floatHeight) - (Vector3.Down * -player.Velocity.Y * dampingSpringStrength);
     }
-    else if (floatHeight > -0.3f && player.movementState != Player.MovementState.jumping && player.isGrounded)
+    // calculate and return forces required to keep player attached to the ground in steeper downhills or stairs
+    else if (floatHeight > -0.3 && player.movementState != Player.MovementState.jumping && player.isGrounded)
     {
       return Vector3.Up * 0.5f * player.gravity * floatHeight;
     }
+    // if higher than 30cm away from wanted floating height, player has left the ground
     else
     {
       player.isGrounded = false;
@@ -32,7 +33,7 @@ const floatCode = `public Vector3 FloatPlayer()
   {
     player.isGrounded = false;
   }
-
+  // if nothing under return no forces
   return Vector3.Zero;
 }`;
 
