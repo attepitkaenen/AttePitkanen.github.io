@@ -55,7 +55,7 @@ export const RoadTripBlog = () => {
         </a>
         <h2 className="text-3xl">About the project:</h2>
         <p className="text-xl">
-          Roadtrip is coop immersive sim where you drive through Finland with
+          Roadtrip is co-op immersive sim where you drive through Finland with
           friends. You have to find parts to build a car and then maintain the
           car to survive the whole trip. Built in Godot 4.2 using C#
         </p>
@@ -73,13 +73,17 @@ export const RoadTripBlog = () => {
           feels more fluid and it adds dynamic "animations" to landing and
           walking up stairs or steep surfaces.
         </p>
-        <ReactPlayer url="https://youtu.be/8hsCm19of9w" />
-        <CopyBlock
-          text={floatCode}
-          language={"csharp"}
-          showLineNumbers={true}
-          theme={dracula}
-        />
+        <div className="hidden lg:block">
+          <ReactPlayer url="https://youtu.be/8hsCm19of9w" />
+        </div>
+        <div className="hidden lg:block">
+          <CopyBlock
+            text={floatCode}
+            language={"csharp"}
+            showLineNumbers={true}
+            theme={dracula}
+          />
+        </div>
       </div>
     </Blog>
   );
