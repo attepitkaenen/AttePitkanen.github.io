@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./Pages/HomePage.tsx";
 import { RoadTripBlog } from "./Blogs/RoadTripBlog.tsx";
 import { DealFortressBlog } from "./Blogs/DealfortressBlog.tsx";
+import { PortfolioBlog } from "./Blogs/PortfolioBlog.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
       {
         path: "portfolio/Dealfortress",
         element: <DealFortressBlog />,
-      }
+      },
+      {
+        path: "portfolio/portfolio",
+        element: <PortfolioBlog />,
+      },
     ],
   },
 ]);
