@@ -1,4 +1,6 @@
+import ReactPlayer from "react-player";
 import { Blog } from "../Components/Blog";
+import { CopyBlock, dracula } from "react-code-blocks";
 
 const floatCode = `public Vector3 FloatPlayer()
 {
@@ -50,33 +52,32 @@ export const RoadTripBlog = () => {
         <a href="" className="text-2xl text-white">
           • Demo (coming soon)
         </a>
-        <p className="text-2xl">
+        <h2 className="text-3xl">About the project:</h2>
+        <p className="text-xl">
           Roadtrip is coop immersive sim where you drive through Finland with
           friends. You have to find parts to build a car and then maintain the
-          car to survive the whole trip.
+          car to survive the whole trip. Built in Godot 4.2 using C#
         </p>
-        <p className="text-2xl">Built in Godot 4.2 using C#</p>
         <h2 className="text-3xl">Notable mechanics:</h2>
         <h2 className="text-3xl">Floating character controller</h2>
-        <p>
+        <p className="text-xl">
           The character movement is unique compared to most if not all similar
           first person experiences, since it implements a floating character
           controller.
         </p>
-        <p>
+        <p className="text-xl">
           The benefits of a floating character controller allows smooth movement
           over jagged surfaces such stairs or gaps wider than the player,
           without using colliders to smooth out the surfaces. The movement also
           feels more fluid and it adds dynamic "animations" to landing and
           walking up stairs or steep surfaces.
         </p>
-        <pre>
-          <code className="language-csharp">{floatCode}</code>
-        </pre>
-        <img
-          src="https://i.imgur.com/9ewlF5Q.png"
-          alt=""
-          className="aspect-video object-contain w-full h-full"
+        <ReactPlayer url="https://youtu.be/8hsCm19of9w" />
+        <CopyBlock
+          text={floatCode}
+          language={"csharp"}
+          showLineNumbers={true}
+          theme={dracula}
         />
       </div>
     </Blog>
