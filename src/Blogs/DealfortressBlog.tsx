@@ -1,6 +1,9 @@
 import { Blog } from "../Components/Blog";
 
 export const DealFortressBlog = () => {
+  window.scrollTo(0, 0);
+
+
   return (
     <Blog title="DealFortress"> 
       <div className="mx-2 lg:mx-32 p-4 flex flex-col gap-6 bg-slate-500">

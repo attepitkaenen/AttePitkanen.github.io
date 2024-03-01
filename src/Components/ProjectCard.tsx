@@ -4,6 +4,8 @@ type Props = {
   project: Project;
 };
 
+
+
 export const ProjectCard = ({ project }: Props) => {
   var tags = project.tags.map((tag) => {
     return <div className="bg-black p-2 text-sm lg:text-base">{tag}</div>;

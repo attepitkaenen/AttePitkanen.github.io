@@ -1,6 +1,10 @@
 import { Blog } from "../Components/Blog";
 
+
 export const PortfolioBlog = () => {
+  window.scrollTo(0, 0);
+
+
   return (
     <Blog title="Portfolio"> 
       <div className="mx-2 lg:mx-32 p-4 flex flex-col gap-6 bg-slate-500">

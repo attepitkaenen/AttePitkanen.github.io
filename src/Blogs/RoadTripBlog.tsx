@@ -1,16 +1,84 @@
 import { Blog } from "../Components/Blog";
 
-  export const RoadTripBlog = () => {
-    return (
-      <Blog title="Roadtrip">
-        <div className="mx-2 lg:mx-32 p-4 flex flex-col gap-6 bg-slate-500">
-          <a href="https://github.com/attepitkaenen/RoadTrip" className="text-2xl text-white disabled" target="_blank">• Project repository</a>
-          <a href="" className="text-2xl text-white">• Demo (coming soon)</a>
-          <p className="text-2xl">Roadtrip is coop immersive sim where you drive through Finland with friends. You have to find parts to build a car and then maintain the car to survive the whole trip.</p>
-          <p className="text-2xl">Built in Godot 4.2 using C#</p>
-          <img src="https://i.imgur.com/9ewlF5Q.png" alt="" className="aspect-video object-contain w-full h-full"/>
-        </div>
-      </Blog>
-    );
-  };
-  
+const floatCode = `public Vector3 FloatPlayer()
+{
+  if (floatCast.IsColliding())
+  {
+    Vector3 position = player.Position;
+    int closestIndex = GetIndexOfClosestCollider();
+    Vector3 collisionPoint = floatCast.GetCollisionPoint(closestIndex);
+    float distance = new Vector3(collisionPoint.X, position.Y, collisionPoint.Z).DistanceTo(collisionPoint);
+
+    CapsuleShape3D capsule = player.collisionShape3D.Shape as CapsuleShape3D;
+    floatHeight = -distance + floatOffset + (capsule.Height / 2);
+
+    if (floatHeight > 0 && player.movementState != Player.MovementState.jumping)
+    {
+      player.isGrounded = true;
+      return (Vector3.Up * floatForce * player.gravity * floatHeight) - (Vector3.Down * -player.Velocity.Y * dampingSpringStrength);
+    }
+    else if (floatHeight > -0.3f && player.movementState != Player.MovementState.jumping && player.isGrounded)
+    {
+      return Vector3.Up * 0.5f * player.gravity * floatHeight;
+    }
+    else
+    {
+      player.isGrounded = false;
+    }
+  }
+  else
+  {
+    player.isGrounded = false;
+  }
+
+  return Vector3.Zero;
+}`;
+
+export const RoadTripBlog = () => {
+  window.scrollTo(0, 0);
+
+  return (
+    <Blog title="Roadtrip">
+      <div className="mx-2 lg:mx-32 p-4 flex flex-col gap-6 bg-slate-500">
+        <a
+          href="https://github.com/attepitkaenen/RoadTrip"
+          className="text-2xl text-white disabled"
+          target="_blank"
+        >
+          • Project repository
+        </a>
+        <a href="" className="text-2xl text-white">
+          • Demo (coming soon)
+        </a>
+        <p className="text-2xl">
+          Roadtrip is coop immersive sim where you drive through Finland with
+          friends. You have to find parts to build a car and then maintain the
+          car to survive the whole trip.
+        </p>
+        <p className="text-2xl">Built in Godot 4.2 using C#</p>
+        <h2 className="text-3xl">Notable mechanics:</h2>
+        <h2 className="text-3xl">Floating character controller</h2>
+        <p>
+          The character movement is unique compared to most if not all similar
+          first person experiences, since it implements a floating character
+          controller.
+        </p>
+        <p>
+          The benefits of a floating character controller allows smooth movement
+          over jagged surfaces such stairs or gaps wider than the player,
+          without using colliders to smooth out the surfaces. The movement also
+          feels more fluid and it adds dynamic "animations" to landing and
+          walking up stairs or steep surfaces.
+        </p>
+        <pre>
+          <code className="language-csharp">{floatCode}</code>
+        </pre>
+        <img
+          src="https://i.imgur.com/9ewlF5Q.png"
+          alt=""
+          className="aspect-video object-contain w-full h-full"
+        />
+      </div>
+    </Blog>
+  );
+};
