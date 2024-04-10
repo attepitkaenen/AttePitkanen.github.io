@@ -23,7 +23,7 @@ export const HomePage = () => {
         </div>
         <div className="text-center w-full h-full flex flex-col justify-center gap-2">
           <h1 className="protest-riot-regular text-4xl lg:text-9xl">Hello you!</h1>
-          <p className="quicksand-test text-sm lg:text-2xl">Welcome! I'm Atte Pitkänen, a 21 year old full-stack .Net developer who is eager to dive into any tech related challenges, such as art, 3D modeling, full-stack and game development! </p>
+          <p className="quicksand-test text-sm lg:text-2xl">Welcome! I'm Atte Pitkänen, a 22 year old full-stack .Net developer who is eager to dive into any tech related challenges, such as art, 3D modeling, full-stack and game development! </p>
         </div>
       </div>
       <div className="mx-6 lg:mx-12">
