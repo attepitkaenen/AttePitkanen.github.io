@@ -59,8 +59,38 @@ export const RoadTripBlog = () => {
           friends. You have to find parts to build a car and then maintain the
           car to survive the whole trip. Built in Godot 4.2 using C#
         </p>
+        <h2 className="text-3xl">Goals:</h2>
+        <p className="text-xl">• {'>='}4 player co-op</p>
+        <p className="text-xl">• Cities with quests, shops and activities</p>
+        <p className="text-xl">• Cities are based on real Finnish cities using geological data for heightmaps</p>
+        <p className="text-xl">• City size = 64km^2</p>
+        <p className="text-xl">• Randomized roads with points of interest between cities </p>
+        <p className="text-xl">• Physics based item interactions</p>
+
         <h2 className="text-3xl">Notable mechanics:</h2>
-        <h2 className="text-3xl">Floating character controller</h2>
+
+        <h2 className="text-3xl border-t-2">Cities</h2>
+        <p className="text-xl">
+          First city of the game will be based in Inari, in game Ilari. The data used for the heightmaps is laser scanning data with an accuracy of 2x2m provided by Maanmittauslaitos. The ingame maps will be on a scale of 2/3 compared to real size.
+        </p>
+        <p>Picture of Ilari in the Godot editor {'(view distance in the editor is not large enough for a comparison between the images below)'}</p>
+        <img src="https://i.imgur.com/M2AVul9.png" alt="" className="w-96 aspect-auto"/>
+        <p>Picture of Ilari in Google maps</p>
+        <img src="https://i.imgur.com/cQEkgNz.png" alt="" className="w-96 aspect-auto"/>
+        <p>Heightmap used for the map</p>
+        <img src="https://i.imgur.com/I3WZUp3.png" alt="" className="w-96 aspect-auto"/>
+
+        <h2 className="text-3xl border-t-2">CO-OP</h2>
+        <p className="text-xl">
+          One of my all time favourite genres in gaming is goof around with friends co-op games where the fun of the game is very relient on having fun with friends, e.g. Little big planet series, Minecraft, Deep Rock Galactic and the newest examples being Lethal Company and Content Warning.
+        </p>
+        <p className="text-xl">
+          This is the reason why co-op is a must in my game and it's the foundation that the rest of the game will be built on. The multiplayer networking is implemented using a peer-to-peer model with Godot's high-level networking API in conjuction the low-level API for more taxing stuff, like item physics updates.
+        </p>
+        <img src="https://i.imgur.com/C78sCJb.png"></img>
+        <p className="text-xl">We'll see how many players peer to peer connection can handle with the synchronized physics, but 4 players is the minimum goal I'm aiming for.</p>
+
+        <h2 className="text-3xl border-t-2">Floating character controller</h2>
         <p className="text-xl">
           The character movement is unique compared to most if not all similar
           first person experiences, since it implements a floating character
